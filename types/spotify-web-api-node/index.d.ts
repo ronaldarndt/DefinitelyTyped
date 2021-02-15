@@ -456,9 +456,11 @@ declare class SpotifyWebApi {
      * @param scopes The scopes corresponding to the permissions the application needs.
      * @param state A parameter that you can use to maintain a value between the request and the callback to redirect_uri.It is useful to prevent CSRF exploits.
      * @param showDialog A parameter that you can use to force the user to approve the app on each login rather than being automatically redirected.
+     * @param responseType An optional parameter that you can use to specify the code response based on the authentication type - can be set to 'code' or 'token'.
+     *  Default 'code' to ensure backwards compatability.
      * @returns The URL where the user can give application permissions.
      */
-    createAuthorizeURL(scopes: ReadonlyArray<string>, state: string, showDialog?: boolean): string;
+    createAuthorizeURL(scopes: ReadonlyArray<string>, state: string, showDialog?: boolean, responseType?: 'code' | 'token'): string;
 
     /**
      * Retrieve a list of available genres seed parameter values for recommendations.
